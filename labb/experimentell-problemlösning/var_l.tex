@@ -1,0 +1,24 @@
+\documentclass[tikz,border=0.1in]{standalone}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amssymb, amsmath, amsthm}
+
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+
+\begin{document}
+
+\begin{tikzpicture}
+\begin{axis} [
+  ylabel=Text Y,
+  xlabel=Text X,
+  xmin=0, ymin=0,
+  legend pos = outer north east,
+]
+  \addplot+ [only marks] table [col sep=comma, x index=0, y index=1] {data/var_l.csv};
+\end{axis}
+\end{tikzpicture}
+
+\end{document}

@@ -1,0 +1,33 @@
+\documentclass[tikz,border=0.1in]{standalone}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amssymb, amsmath, amsthm}
+
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+
+\begin{document}
+
+\begin{tikzpicture}
+\begin{axis} [
+  ylabel=$y$,
+  xlabel=$x$,
+  xmin=-0.0005, xmax=,
+%  ymin=1.85, ymax=2.65,
+  xticklabel style={
+          /pgf/number format/fixed,
+          /pgf/number format/precision=5
+  },
+  scaled x ticks=false,
+  scaled y ticks=false,
+  legend pos = outer north east,
+]
+%  \addplot+ [mark=none,domain=-7:-5] {-1.897*x - 9.4668};
+%  \addlegendentry {$-1.9x - 9.5$};
+  \addplot+ [only marks,mark=*,color=blue,mark options={fill=blue}] table [col sep=comma, x index=0, y index=1] {data/c1_c2.csv};
+\end{axis}
+\end{tikzpicture}
+
+\end{document}
