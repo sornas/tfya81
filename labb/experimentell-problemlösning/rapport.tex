@@ -22,7 +22,6 @@
 
 %TODO
 % beskrivande figur
-% siffror mätserie 3
 
 \newcommand*{\dd}{\mathrm{d}}
 %\newcommand*{\ln}{\mathrm{ln}}
@@ -380,6 +379,8 @@ skulle öka modellens trovärdighet.
 
 \clearpage
 \appendix
+\sisetup{output-decimal-marker={.}}
+
 \section{Mätserier}
 
 \begin{table}[h]
@@ -411,12 +412,13 @@ skulle öka modellens trovärdighet.
 \begin{table}[h]
 \caption{Mätserie 3}
 \centering
-\begin{tabular}{|l|l|l|l|}
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
   \hline
-  \textbf{a [m]} & \textbf{T [s]} & $\textbf{a}^2$ & $\textbf{T}^2$
+    \bfseries d [m] & \bfseries l [m] & \bfseries m [kg] & \bfseries G [Pa] &
+    \bfseries a [m] & \bfseries T [s] & $\textbf{a}^2$ & $\textbf{T}^2$
   \csvreader[head to column names,
   before reading=\sisetup{}]{data/var_r.csv}{}
-  {\\\hline \r & \t & \rrr & \ttt}
+  {\\\hline \d & \l & \m & \G & \r & \t & \rrr & \ttt}
   \\\hline
 \end{tabular}
 \end{table}
