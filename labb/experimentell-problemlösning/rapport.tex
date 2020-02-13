@@ -15,21 +15,66 @@
 \usepackage{lipsum}
 \usepackage{parskip}
 
+%TODO
+% beskrivande figur
+% dubbelkolla decimaler
+% siffror mätserie 3
+
 \newcommand*{\dd}{\mathrm{d}}
 %\newcommand*{\ln}{\mathrm{ln}}
 
 \begin{document}
 
+\begin{titlepage}
+  \centering
+  \vspace{10cm}
+  {\Huge Torsionspendel \\}
+  \vspace{2cm}
+  {\Large TFYA81 - Experimentell problemlösning \\}
+  \vspace{0.8em}
+  {\Large Laborationsrapport}
+  \vfill
+
+  {
+    \textsc{Philip Holm} - phiho621 \\
+    \textsc{Gustav Sörnäs} - gusso230 \\
+    \vspace{2cm}
+    Teknisk fysik och elektroteknik (Y) \\
+    Linköpings universitet, Linköping \today{} (Version 1)
+  }
+
+  % Bottom of the page
+  %{\large \today\par}
+\end{titlepage}
+
+\pagenumbering{gobble}
 \section*{Sammanfattning}
-\lipsum[1]
+
+En modell för periodtiden för en torsionspendel togs
+fram via experiment och beräkning. Följande blev modellen.
+
+\begin{equation*}
+  T = \frac{c_2 \sqrt{l(ma^2 + c_1)}}{d^2 \sqrt{G}}
+\end{equation*}
+
+$T$ är period tiden, $l$ och $d$ beskriver trådens längd respektive diameter. $m$ är de
+på satta vikternas massa, $a$ är längden från pendelns centrum och de påsatta
+vikternas centrum och $G$ är skjuvmodulen för trådens material. $c_1$ är en konstant
+som uppmättes till $0.00089 \pm 8.5 \cdot 10^{-6} \ \text{kgm}^2$. $c_2$ är en dimensionslös
+konstant som uppmättes till $29.7 \pm 0.06$.
 
 \clearpage
 
 \tableofcontents
 \clearpage
 
+\pagenumbering{arabic}
+
 \section{Inledning}
-\lipsum[1]
+
+Syftet med laborationen var att ta fram en fysikalisk modell för periodtiden
+för en stång i en torsionspendel,  beroende på trådens längd, diameter, massan
+samt hur långt ut på stången vikterna sattes.
 
 \section{Metod}
 
@@ -66,12 +111,10 @@ tiden mättes med stoppur.
 
 \subsection{Hypotes}
 
-...
-
 I övrigt antogs sambandet vara multiplikativt.
 
 \begin{equation}
-  T = L^a \cdot d^b \cdot (m^c \cdot r^d + c_1)^e \cdot G^f \cdot c_2
+  T = L^\alpha \cdot d^\beta \cdot (m^\gamma \cdot a^\sigma + c_1)^\omega \cdot G^\lambda \cdot c_2
 \end{equation}
 
 \subsection{Dimensionsanalys}
@@ -81,15 +124,17 @@ Givet ovanstående ansats ficks följande ekvationssystem gällande exponenterna
 \begin{equation}
   %\left\{
   \begin{array}{rrcc}
-    \text{m:} & \hspace{1em} a + b + de - f & = & 0 \\
-    \text{kg:} & c e + f & = & 0 \\
-    \text{s:} & 2f & = & 1
+    \text{m:} & \hspace{1em} \alpha + \beta + \sigma \omega - \lambda & = & 0 \\
+    \text{kg:} & \gamma \omega + \lambda & = & 0 \\
+    \text{s:} & 2\lambda & = & 1
   \end{array}
   \label{eq:system}
 \end{equation}
 
-$f = \frac{-1}{2}$ antogs som uppenbar. $a$ och $b$ ficks sedan genom
-linjäriseringar och $c$, $d$ och $e$ ficks genom en ansats.
+$\lambda = \frac{-1}{2}$ antogs som uppenbar. $\alpha$ och $\beta$ ficks sedan genom
+linjäriseringar och $\gamma$, $\sigma$ och $\omega$ ficks genom en ansats.
+
+%\clearpage
 
 \section{Resultat}
 
@@ -99,18 +144,18 @@ linjäriseringar och $c$, $d$ och $e$ ficks genom en ansats.
 varpå följande linjärisering genomfördes.
 
 \begin{align}
-  \ln T &= \ln (L^a \cdot d^b \cdot (m^c \cdot r^d + c_1)^e \cdot G^f \cdot c_2) \nonumber \\
-  \ln T &= \ln (L^a) + \ln (d^b \cdot (m^c \cdot r^d + c_1)^e \cdot G^f \cdot c_2) \nonumber \\
-  \ln T &= a\ln L + ln (d^b \cdot (m^c \cdot r^d + c_1)^e \cdot G^f \cdot c_2)  \label{eq:lin_La}
+  \ln T &= \ln (L^\alpha \cdot d^\beta \cdot (m^\gamma \cdot a^\sigma + c_1)^\omega \cdot G^\lambda \cdot c_2) \nonumber \\
+  \ln T &= \ln (L^\alpha) + \ln (d^\beta \cdot (m^\gamma \cdot a^\sigma + c_1)^\omega \cdot G^\lambda \cdot c_2) \nonumber \\
+  \ln T &= \alpha \ln L + \ln (d^\beta \cdot (m^\gamma \cdot a^\sigma + c_1)^\omega \cdot G^\lambda \cdot c_2)  \label{eq:lin_La}
 \end{align}
 
-Dessutom gjordes 15 mätningar (mätserie~2) där $d$ var den enda variabeln som varierades och
-följande linjärisering gjordes.
+Dessutom gjordes 15 mätningar (mätserie~2) där $d$ var den enda variabeln som
+varierades och följande linjärisering gjordes.
 
 \begin{align}
-  \ln T &= \ln (L^a \cdot d^b \cdot (m^c \cdot r^d + c_1)^e \cdot G^f \cdot c_2) \nonumber \\
-  \ln T &= \ln (d^b) + \ln (L^a \cdot (m^c \cdot r^d + c_1)^e \cdot G^f \cdot c_2) \nonumber \\
-  \ln T &= b\ln d + \ln (L^a \cdot (m^c \cdot r^d + c_1)^e \cdot G^f \cdot c_2)  \label{eq:lin_db}
+  \ln T &= \ln (L^\alpha \cdot d^\beta \cdot (m^\gamma \cdot a^\sigma + c_1)^\omega \cdot G^\lambda \cdot c_2) \nonumber \\
+  \ln T &= \ln (d^\beta) + \ln (L^\alpha \cdot (m^\gamma \cdot a^\sigma + c_1)^\omega \cdot G^\lambda \cdot c_2) \nonumber \\
+  \ln T &= \beta\ln d + \ln (L^\alpha \cdot (m^\gamma \cdot a^\sigma + c_1)^\omega \cdot G^\lambda \cdot c_2)  \label{eq:lin_db}
 \end{align}
 
 Ekvationerna \eqref{eq:lin_La} och \eqref{eq:lin_db} ritades upp enligt
@@ -152,46 +197,48 @@ figur~\ref{fig:lin_La} och figur~\ref{fig:lin_db}.
   \label{fig:lin_db}
 \end{figure}
 
-Eftersom lutningen i figur~\ref{fig:lin_La} beskrev exponenten $a$ och lutningen
-i figur~\ref{fig:lin_db} beskrev exponenten $b$ antogs $a = 0.5$ och $b = -2$.
+Eftersom lutningen i figur~\ref{fig:lin_La} beskrev exponenten $\alpha$ och
+lutningen i figur~\ref{fig:lin_db} beskrev exponenten $\beta$ antogs $\alpha =
+0.5$ och $\beta = -2$.
 
 \subsection{Ansättning}
 
-På grund av additionen under exponenten $e$ kunde varken $c$, $d$ eller $e$
+På grund av additionen under exponenten $\omega$ kunde varken $\gamma$, $\sigma$ eller $\omega$
 beräknas genom linjärisering. Istället gjordes en omskrivning med hjälp av
-ekvationssystemet \eqref{eq:system} och ett värde på $c$ ansattes.
+ekvationssystemet \eqref{eq:system} och ett värde på $\gamma$ ansattes.
 
 \begin{align}
-  T &= L^a \cdot d^b \cdot (m^c \cdot r^d + c_1)^e \cdot G^f  \cdot c_2\nonumber \\
-  T &= D (m^c \cdot r^d + c_1)^e \nonumber \\
-  T &= D (m^c \cdot r^{2c} + c_1)^{1/2c} \label{eq:use_system} \\
-  T^{2c} &= D^{2c} (m^c \cdot r^{2c} + c_1) \nonumber \\
-  T^{2c} &= (D^2m)^c r^{2c} + D^{2c}c_1 \label{eq:lin_c}
+  T &= L^\alpha \cdot d^\beta \cdot (m^\gamma \cdot a^\sigma + c_1)^\omega \cdot G^\lambda  \cdot c_2\nonumber \\
+  T &= D (m^\gamma \cdot a^\sigma + c_1)^\omega \nonumber \\
+  T &= D (m^\gamma \cdot a^{2\gamma} + c_1)^{1/2\gamma} \label{eq:use_system} \\
+  T^{2\gamma} &= D^{2\gamma} (m^\gamma \cdot a^{2\gamma} + c_1) \nonumber \\
+  T^{2\gamma} &= (D^2m)^\gamma a^{2\gamma} + D^{2\gamma}c_1 \label{eq:lin_c}
 \end{align}
 
 I ekvation~\eqref{eq:use_system} användes ekvationsystemet så alla exponenter
 beskrevs utifrån $c$.
 
-I ekvation~\eqref{eq:lin_c} ansattes sedan $c = 1$. 35 mätningar (mätserie~3)
-utfördes där $r$ var den enda variabeln som varierade och figur~\ref{fig:lin_c}
+I ekvation~\eqref{eq:lin_c} ansattes sedan $\gamma = 1$. 35 mätningar (mätserie~3)
+utfördes där $a$ var den enda variabeln som varierade och figur~\ref{fig:lin_c}
 ritades ut för att kontrollera hypotesen.
 
 \begin{figure}[h!]
   \begin{tikzpicture}
     \begin{axis} [
+      legend style={cells={align=left}},
       xticklabel style={
         /pgf/number format/fixed,
         /pgf/number format/precision=3
       },
       scaled x ticks=false,
       ylabel=$T^2$,
-      xlabel=$r^2$,
+      xlabel=$a^2$,
       xmin=-0.005, xmax=0.063,
       ymin=-0.1, ymax=1.8,
       legend pos = outer north east,
       ]
       \addplot+ [mark=none, domain=-0.01:0.1] {22.9564*x + 0.3024};
-      \addlegendentry{$23.0x + 0.3$};
+      \addlegendentry{$23.0x + 0.3$ \\ ($r^2 = 0.9994$)};
       \addplot+ [only marks,mark=*,color=blue,mark options={fill=blue}] table [col sep=comma, x index=2, y index=3] {data/var_r.csv};
     \end{axis}
   \end{tikzpicture}
@@ -199,12 +246,12 @@ ritades ut för att kontrollera hypotesen.
   \label{fig:lin_c}
 \end{figure}
 
-På grund av den höga linjäriteten (framförallt för $r$ nära 0) antogs $c = 1$
+På grund av den höga linjäriteten (framförallt för $a$ nära 0) antogs $\gamma = 1$
 vara en korrekt ansättning. Ekvationssystemet löstes sedan fullständigt.
 
 \begin{align}
-  ce - \frac{1}{2} = 0 \quad &\Leftrightarrow \quad ce = \frac{1}{2} \quad \Leftrightarrow \quad e = \frac{1}{2c} = \frac{1}{2} & \\[0.5em]
-  \frac{1}{2} - 2 + de - \frac{1}{2} = 0 \quad &\Leftrightarrow \quad de = 2 \quad \Leftrightarrow \quad d = 2c = 2 &
+  \gamma\omega - \frac{1}{2} = 0 \quad &\Leftrightarrow \quad \gamma\omega = \frac{1}{2} \quad \Leftrightarrow \quad \omega = \frac{1}{2\gamma} = \frac{1}{2} & \\[0.5em]
+  \frac{1}{2} - 2 + \sigma\omega - \frac{1}{2} = 0 \quad &\Leftrightarrow \quad \sigma\omega = 2 \quad \Leftrightarrow \quad \sigma = 2\gamma = 2 &
 \end{align}
 
 \subsection{Bestämning av konstanter}
@@ -213,9 +260,9 @@ Konstanterna $c_1$ och $c_2$ bestämdes genom följande linjärisering.
 Mätserie~3 återanvändes och figur~\ref{fig:lin_c1_c2} ritades ut.
 
 \begin{align}
-  T &= L^{1/2} \cdot d^{-2} \cdot (m r^2 + c_1)^{1/2} \cdot G^{-1/2} \cdot c_2 \nonumber \\
-  T^2 &= L \cdot d^{-4} \cdot (m r^2 + c_1) \cdot G^{-1} \cdot c_2^2 \nonumber \\
-  \underbrace{\frac{T^2 d^4 G}{L}}_y &= \underbrace{c_2^2 \vphantom{\frac{T^2 d^4 G}{L}}}_k \underbrace{m r^2 \vphantom{\frac{T^2 d^4 G}{L}}}_x + \underbrace{c_1c_2^2 \vphantom{\frac{T^2 d^4 G}{L}}}_m
+  T &= L^{1/2} \cdot d^{-2} \cdot (m a^2 + c_1)^{1/2} \cdot G^{-1/2} \cdot c_2 \nonumber \\
+  T^2 &= L \cdot d^{-4} \cdot (m a^2 + c_1) \cdot G^{-1} \cdot c_2^2 \nonumber \\
+  \underbrace{\frac{T^2 d^4 G}{L}}_y &= \underbrace{c_2^2 \vphantom{\frac{T^2 d^4 G}{L}}}_k \underbrace{m a^2 \vphantom{\frac{T^2 d^4 G}{L}}}_x + \underbrace{c_1c_2^2 \vphantom{\frac{T^2 d^4 G}{L}}}_m
 \end{align}
 
 \begin{figure}[h!]
@@ -254,8 +301,8 @@ Följande fel uppskattades i avläsningen av de olika storheterna.
   \hline
   \textbf{Storhet} & \textbf{Mätfel} \\\hline
   Trådens längd ($L$) & $\pm 0.5 \text{mm}$ \\\hline
-  Trådens diameter ($d$) & $\pm ?? \text{mm}$ \\\hline
-  Viktens massa ($m$) & $\pm ?? \text{g}$ \\\hline
+  Trådens diameter ($d$) & $\pm 0.01 \text{mm}$ \\\hline
+  Viktens massa ($m$) & $\pm 0.05 \text{g}$ \\\hline
   Viktens avstånd från mitten ($a$) & $\pm 0.5 \text{mm}$ \\\hline
   Pendeltiden ($T$) & $\pm 0.05 \text{s}$ \\\hline
 \end{tabular}
@@ -277,8 +324,27 @@ Utifrån dessa ställdes följande feluppskattningar upp.
          &= \sqrt{\left( \frac{-m}{k^2} \, s(k) \right)^2 + \left( \frac{1}{k} \, s(m) \right)^2} \approx ...
 \end{align}
 
+\clearpage
+
 \section{Slutsats och diskussion}
-\lipsum[1-2]
+
+\subsection*{Slutsats}
+
+Experimentet tillsammans med dimensionsanalys och linjärisering visar att det
+går att ta fram en modell och formel för periodtiden för en torsionspendel.
+Analysen visar att trådens längd, diameter, skjuvmodul och var vikten placeras
+på stången samt massan av den påverkar pendeltiden. 
+
+\subsection*{Diskussion}
+
+Modellen tar inte hänsyn till varken pendelns vinkelutslag eller huruvida
+pendelrörelsen är dämpad eller inte. Framtida experiment kan göras för att
+undersöka huruvuda de påverkar modellen eller inte.
+
+Vidare borde en separat modellprövning ha utförts. Modellen testades aldrig mot
+nya mätvärden vilket kan betyda att modellen är anpassad efter våra mätningar
+och inte speglar verkligheten. Fler mätningar med olika variabler som varieras
+skulle öka modellens trovärdighet.
 
 \clearpage
 \appendix
@@ -288,7 +354,7 @@ Utifrån dessa ställdes följande feluppskattningar upp.
 
 \begin{tabular}{|l|l|l|l|}
   \hline
-  \textbf{L} & \textbf{T} & \textbf{lnL} & \textbf{lnT}
+  \textbf{L [m]} & \textbf{T [s]} & \textbf{lnL} & \textbf{lnT}
   \csvreader[head to column names,
   before reading=\sisetup{}]{data/var_l.csv}{}
   {\\\hline \l & \t & \lnl & \lnt}
@@ -299,7 +365,7 @@ Utifrån dessa ställdes följande feluppskattningar upp.
 
 \begin{tabular}{|l|l|l|l|}
   \hline
-  \textbf{d} & \textbf{T} & \textbf{lnd} & \textbf{lnT}
+  \textbf{d [m]} & \textbf{T [s]} & \textbf{lnd} & \textbf{lnT}
   \csvreader[head to column names,
   before reading=\sisetup{}]{data/var_d.csv}{}
   {\\\hline \d & \t & \lnd & \lnt}
@@ -310,7 +376,7 @@ Utifrån dessa ställdes följande feluppskattningar upp.
 
 \begin{tabular}{|l|l|l|l|}
   \hline
-  \textbf{r} & \textbf{T} & $\textbf{r}^2$ & $\textbf{T}^2$
+  \textbf{a [m]} & \textbf{T [s]} & $\textbf{a}^2$ & $\textbf{T}^2$
   \csvreader[head to column names,
   before reading=\sisetup{}]{data/var_r.csv}{}
   {\\\hline \r & \t & \rrr & \ttt}
