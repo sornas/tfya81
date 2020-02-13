@@ -4,11 +4,12 @@
 \usepackage[utf8]{inputenc}
 
 \usepackage{amssymb, amsmath, amsthm}
-\usepackage{systeme}
+\usepackage{siunitx}
 
 \usepackage{subfig}
 \usepackage{pgfplots}
 \usepackage{pgfplotstable}
+\usepackage{csvsimple}
 
 \usepackage[swedish]{babel}
 \usepackage{lipsum}
@@ -281,6 +282,39 @@ Utifrån dessa ställdes följande feluppskattningar upp.
 
 \clearpage
 \appendix
-\section{Bilagor}
+\section{Mätserier}
+
+\subsection*{Mätserie 1}
+
+\begin{tabular}{|l|l|l|l|}
+  \hline
+  \textbf{L} & \textbf{T} & \textbf{lnL} & \textbf{lnT}
+  \csvreader[head to column names,
+  before reading=\sisetup{}]{data/var_l.csv}{}
+  {\\\hline \l & \t & \lnl & \lnt}
+  \\\hline
+\end{tabular}
+
+\subsection*{Mätserie 2}
+
+\begin{tabular}{|l|l|l|l|}
+  \hline
+  \textbf{d} & \textbf{T} & \textbf{lnd} & \textbf{lnT}
+  \csvreader[head to column names,
+  before reading=\sisetup{}]{data/var_d.csv}{}
+  {\\\hline \d & \t & \lnd & \lnt}
+  \\\hline
+\end{tabular}
+
+\subsection*{Mätserie 3}
+
+\begin{tabular}{|l|l|l|l|}
+  \hline
+  \textbf{r} & \textbf{T} & $\textbf{r}^2$ & $\textbf{T}^2$
+  \csvreader[head to column names,
+  before reading=\sisetup{}]{data/var_r.csv}{}
+  {\\\hline \r & \t & \rrr & \ttt}
+  \\\hline
+\end{tabular}
 
 \end{document}
