@@ -1,11 +1,13 @@
 # You want latexmk to *always* run, because make does not have all the info.
 # Also, include non-file targets in .PHONY so they are run regardless of any
 # file of the given name existing.
-.PHONY: clean  #TODO add "all"
+.PHONY: rapport clean  #TODO add "all"
 
 # The first rule in a Makefile is the one executed by default ("make"). It
 # should always be the "all" rule, so that "make" and "make all" are identical.
 # all: fig.pdf
+
+rapport: rapport.pdf
 
 # CUSTOM BUILD RULES
 
@@ -29,8 +31,8 @@
 # -interaction=nonstopmode keeps the pdflatex backend from stopping at a
 # missing file reference and interactively asking you for an alternative.
 
-#fig.pdf: fig.tex
-#	latexmk -pdf -pdflatex="pdflatex -interaction=nonstopmode" -use-make fig.tex; open fig.pdf
+rapport.pdf: rapport.tex
+	latexmk -pdf -pdflatex="pdflatex -interaction=nonstopmode" -use-make rapport.tex; open rapport.pdf
 
 clean:
 	latexmk -CA

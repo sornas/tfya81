@@ -11,6 +11,7 @@
 \usepackage{pgfplotstable}
 
 \usepackage[swedish]{babel}
+\usepackage{lipsum}
 \usepackage{parskip}
 
 \newcommand*{\dd}{\mathrm{d}}
@@ -19,12 +20,15 @@
 \begin{document}
 
 \section*{Sammanfattning}
+\lipsum[1]
+
 \clearpage
 
 \tableofcontents
 \clearpage
 
 \section{Inledning}
+\lipsum[1]
 
 \section{Metod}
 
@@ -50,16 +54,18 @@ minska osäkerheten.
     Viktens avstånd från mitten & $a$ & [m] & L \\\hline
     Trådens skjuvmodul & $G$ & [Pa] $=$ [kg $\mathrm{m}^{-1}$ $\mathrm{s}^{-2}$] & M $\mathrm{L}^{-1}$ $\mathrm{T}^{-2}$ \\\hline
     Pendeltiden & $T$ & [s] & T \\\hline
-    Konstant med dimension & $c_1$ & [???] & ??? \\\hline
+    Konstant med dimension & $c_1$ & [?] & ? \\\hline
     Konstant utan dimension & $c_2$ && \\\hline
   \end{tabular}
 \end{table}
 
 Trådens diameter mättes med en mikrometer. Övriga längder mättes med måttband.
-Massan mättes med våg, skjuvmodulerna var givna i laborationsinstruktionen och
+Massan mättes med våg, skjuvmodulerna gavs i laborationsinstruktionen och
 tiden mättes med stoppur.
 
 \subsection{Hypotes}
+
+...
 
 I övrigt antogs sambandet vara multiplikativt.
 
@@ -103,7 +109,7 @@ följande linjärisering gjordes.
 \begin{align}
   \ln T &= \ln (L^a \cdot d^b \cdot (m^c \cdot r^d + c_1)^e \cdot G^f \cdot c_2) \nonumber \\
   \ln T &= \ln (d^b) + \ln (L^a \cdot (m^c \cdot r^d + c_1)^e \cdot G^f \cdot c_2) \nonumber \\
-  \ln T &= b\ln d + ln (L^a \cdot (m^c \cdot r^d + c_1)^e \cdot G^f \cdot c_2)  \label{eq:lin_db}
+  \ln T &= b\ln d + \ln (L^a \cdot (m^c \cdot r^d + c_1)^e \cdot G^f \cdot c_2)  \label{eq:lin_db}
 \end{align}
 
 Ekvationerna \eqref{eq:lin_La} och \eqref{eq:lin_db} ritades upp enligt
@@ -192,9 +198,8 @@ ritades ut för att kontrollera hypotesen.
   \label{fig:lin_c}
 \end{figure}
 
-På grund av den höga linjäriteten (framförallt när $r$ var väldigt nära 0)
-antogs $c = 1$ vara en korrekt ansättning. Ekvationssystemet löstes sedan
-fullständigt.
+På grund av den höga linjäriteten (framförallt för $r$ nära 0) antogs $c = 1$
+vara en korrekt ansättning. Ekvationssystemet löstes sedan fullständigt.
 
 \begin{align}
   ce - \frac{1}{2} = 0 \quad &\Leftrightarrow \quad ce = \frac{1}{2} \quad \Leftrightarrow \quad e = \frac{1}{2c} = \frac{1}{2} & \\[0.5em]
@@ -227,7 +232,7 @@ Mätserie~3 återanvändes och figur~\ref{fig:lin_c1_c2} ritades ut.
       legend pos = outer north east,
       ]
       \addplot+ [mark=none,domain=-0.0005:0.005] {880.998*x + 0.787};
-      \addlegendentry{$881x + 0.79$};
+      \addlegendentry{$881 (\pm 4) \cdot x + 0.787 (\pm 0.007)$};
       \addplot+ [only marks,mark=*,color=blue,mark options={fill=blue}] table [col sep=comma, x index=0, y index=1] {data/c1_c2.csv};
     \end{axis}
   \end{tikzpicture}
@@ -236,13 +241,25 @@ Mätserie~3 återanvändes och figur~\ref{fig:lin_c1_c2} ritades ut.
 \end{figure}
 
 \begin{align}
-  k = c_2^2 \quad &\Leftarrow \quad c_2 = \sqrt{k} \approx 29.7 \\
+  k = c_2^2 \quad &\Leftarrow \quad c_2 = \sqrt{k} \approx 29.7\\
   m = c_1c_2^2 \quad &\Leftarrow \quad c_1 = \frac{m}{k} \approx 0.00089
 \end{align}
 
 \subsection{Felanalys}
 
-... Osäkerheten i $c_1$ och $c_2$ bedömdes med felfortplantningsformeln.
+Följande fel uppskattades i avläsningen av de olika storheterna.
+
+\begin{tabular}{|l|l|}
+  \hline
+  \textbf{Storhet} & \textbf{Mätfel} \\\hline
+  Trådens längd ($L$) & $\pm 0.5 \text{mm}$ \\\hline
+  Trådens diameter ($d$) & $\pm ?? \text{mm}$ \\\hline
+  Viktens massa ($m$) & $\pm ?? \text{g}$ \\\hline
+  Viktens avstånd från mitten ($a$) & $\pm 0.5 \text{mm}$ \\\hline
+  Pendeltiden ($T$) & $\pm 0.05 \text{s}$ \\\hline
+\end{tabular}
+
+Osäkerheten i $c_1$ och $c_2$ bedömdes med felfortplantningsformeln.
 
 Följande ekvationer ställdes upp.
 
@@ -260,5 +277,10 @@ Utifrån dessa ställdes följande feluppskattningar upp.
 \end{align}
 
 \section{Slutsats och diskussion}
+\lipsum[1-2]
+
+\clearpage
+\appendix
+\section{Bilagor}
 
 \end{document}
