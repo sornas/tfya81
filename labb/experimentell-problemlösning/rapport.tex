@@ -1,0 +1,264 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amssymb, amsmath, amsthm}
+\usepackage{systeme}
+
+\usepackage{subfig}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+
+\usepackage[swedish]{babel}
+\usepackage{parskip}
+
+\newcommand*{\dd}{\mathrm{d}}
+%\newcommand*{\ln}{\mathrm{ln}}
+
+\begin{document}
+
+\section*{Sammanfattning}
+\clearpage
+
+\tableofcontents
+\clearpage
+
+\section{Inledning}
+
+\section{Metod}
+
+%\subsection{Experimentets utförande}
+En metalltråd fästes med hjälp av en tving-liknande klämma i ena änden och läts
+i andra änden hänga fritt. I den fria änden fästes mitten av en stång med en
+insex-nyckel. På stångens båda sidor skruvades vikter på med lika avstånd från
+mittpunkten av stången. Vid vardera mätning roterades stången en bit och läts
+sedan pendla fritt. Pendeltiden mättes för tio pendelutslag åt gången för att
+minska osäkerheten.
+
+\subsection{Ingående variabler}
+
+\begin{table}[h!]
+  \caption{Storheter}
+  \label{tab:storheter}
+  \begin{tabular} {| l | l | l | l |}
+    \hline
+    \textbf{Beskrivning} & \textbf{Variabel} & \textbf{Enhet} & \textbf{Dimension} \\\hline
+    Trådens längd & $l$ & [m] & L \\\hline
+    Trådens diameter & $d$ & [m] & L \\\hline
+    Viktens massa & $m$ & [kg] & M \\\hline
+    Viktens avstånd från mitten & $a$ & [m] & L \\\hline
+    Trådens skjuvmodul & $G$ & [Pa] $=$ [kg $\mathrm{m}^{-1}$ $\mathrm{s}^{-2}$] & M $\mathrm{L}^{-1}$ $\mathrm{T}^{-2}$ \\\hline
+    Pendeltiden & $T$ & [s] & T \\\hline
+    Konstant med dimension & $c_1$ & [???] & ??? \\\hline
+    Konstant utan dimension & $c_2$ && \\\hline
+  \end{tabular}
+\end{table}
+
+Trådens diameter mättes med en mikrometer. Övriga längder mättes med måttband.
+Massan mättes med våg, skjuvmodulerna var givna i laborationsinstruktionen och
+tiden mättes med stoppur.
+
+\subsection{Hypotes}
+
+I övrigt antogs sambandet vara multiplikativt.
+
+\begin{equation}
+  T = L^a \cdot d^b \cdot (m^c \cdot r^d + c_1)^e \cdot G^f \cdot c_2
+\end{equation}
+
+\subsection{Dimensionsanalys}
+
+Givet ovanstående ansats ficks följande ekvationssystem gällande exponenterna.
+
+\begin{equation}
+  %\left\{
+  \begin{array}{rrcc}
+    \text{m:} & \hspace{1em} a + b + de - f & = & 0 \\
+    \text{kg:} & c e + f & = & 0 \\
+    \text{s:} & 2f & = & 1
+  \end{array}
+  \label{eq:system}
+\end{equation}
+
+$f = \frac{-1}{2}$ antogs som uppenbar. $a$ och $b$ ficks sedan genom
+linjäriseringar och $c$, $d$ och $e$ ficks genom en ansats.
+
+\section{Resultat}
+
+\subsection{Linjärisering}
+
+19 mätningar (mätserie~1) gjordes där $L$ var den enda variabeln som varierades
+varpå följande linjärisering genomfördes.
+
+\begin{align}
+  \ln T &= \ln (L^a \cdot d^b \cdot (m^c \cdot r^d + c_1)^e \cdot G^f \cdot c_2) \nonumber \\
+  \ln T &= \ln (L^a) + \ln (d^b \cdot (m^c \cdot r^d + c_1)^e \cdot G^f \cdot c_2) \nonumber \\
+  \ln T &= a\ln L + ln (d^b \cdot (m^c \cdot r^d + c_1)^e \cdot G^f \cdot c_2)  \label{eq:lin_La}
+\end{align}
+
+Dessutom gjordes 15 mätningar (mätserie~2) där $d$ var den enda variabeln som varierades och
+följande linjärisering gjordes.
+
+\begin{align}
+  \ln T &= \ln (L^a \cdot d^b \cdot (m^c \cdot r^d + c_1)^e \cdot G^f \cdot c_2) \nonumber \\
+  \ln T &= \ln (d^b) + \ln (L^a \cdot (m^c \cdot r^d + c_1)^e \cdot G^f \cdot c_2) \nonumber \\
+  \ln T &= b\ln d + ln (L^a \cdot (m^c \cdot r^d + c_1)^e \cdot G^f \cdot c_2)  \label{eq:lin_db}
+\end{align}
+
+Ekvationerna \eqref{eq:lin_La} och \eqref{eq:lin_db} ritades upp enligt
+figur~\ref{fig:lin_La} och figur~\ref{fig:lin_db}.
+
+\begin{figure}
+  \begin{tikzpicture}
+    \begin{axis} [
+      ylabel=$\ln T$,
+      xlabel=$\ln L$,
+      xmin=-2.1, xmax=-0.9,
+      ymin=-0.45, ymax=0.14,
+      legend pos = outer north east,
+      ]
+      \addplot+ [mark=none] {0.4601*x + 0.5066};
+      \addlegendentry {$0.46x + 0.51$};
+      \addplot+ [only marks,mark=*,color=blue,mark options={fill=blue}] table [col sep=comma, x index=2, y index=3] {data/var_l.csv};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Linjärisering med avseende på $L$}
+  \label{fig:lin_La}
+\end{figure}
+
+\begin{figure}
+  \begin{tikzpicture}
+    \begin{axis} [
+      ylabel=$\ln T$,
+      xlabel=$\ln d$,
+      xmin=-6.45, xmax=-5.95,
+      ymin=1.85, ymax=2.65,
+      legend pos = outer north east,
+      ]
+      \addplot+ [mark=none,domain=-7:-5] {-1.897*x - 9.4668};
+      \addlegendentry {$-1.9x - 9.5$};
+      \addplot+ [only marks,mark=*,color=blue,mark options={fill=blue}] table [col sep=comma, x index=2, y index=3] {data/var_d.csv};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Linjärisering med avseende på $d$}
+  \label{fig:lin_db}
+\end{figure}
+
+Eftersom lutningen i figur~\ref{fig:lin_La} beskrev exponenten $a$ och lutningen
+i figur~\ref{fig:lin_db} beskrev exponenten $b$ antogs $a = 0.5$ och $b = -2$.
+
+\subsection{Ansättning}
+
+På grund av additionen under exponenten $e$ kunde varken $c$, $d$ eller $e$
+beräknas genom linjärisering. Istället gjordes en omskrivning med hjälp av
+ekvationssystemet \eqref{eq:system} och ett värde på $c$ ansattes.
+
+\begin{align}
+  T &= L^a \cdot d^b \cdot (m^c \cdot r^d + c_1)^e \cdot G^f  \cdot c_2\nonumber \\
+  T &= D (m^c \cdot r^d + c_1)^e \nonumber \\
+  T &= D (m^c \cdot r^{2c} + c_1)^{1/2c} \label{eq:use_system} \\
+  T^{2c} &= D^{2c} (m^c \cdot r^{2c} + c_1) \nonumber \\
+  T^{2c} &= (D^2m)^c r^{2c} + D^{2c}c_1 \label{eq:lin_c}
+\end{align}
+
+I ekvation~\eqref{eq:use_system} användes ekvationsystemet så alla exponenter
+beskrevs utifrån $c$.
+
+I ekvation~\eqref{eq:lin_c} ansattes sedan $c = 1$. 35 mätningar (mätserie~3)
+utfördes där $r$ var den enda variabeln som varierade och figur~\ref{fig:lin_c}
+ritades ut för att kontrollera hypotesen.
+
+\begin{figure}[h!]
+  \begin{tikzpicture}
+    \begin{axis} [
+      xticklabel style={
+        /pgf/number format/fixed,
+        /pgf/number format/precision=3
+      },
+      scaled x ticks=false,
+      ylabel=$T^2$,
+      xlabel=$r^2$,
+      xmin=-0.005, xmax=0.063,
+      ymin=-0.1, ymax=1.8,
+      legend pos = outer north east,
+      ]
+      \addplot+ [mark=none, domain=-0.01:0.1] {22.9564*x + 0.3024};
+      \addlegendentry{$23.0x + 0.3$};
+      \addplot+ [only marks,mark=*,color=blue,mark options={fill=blue}] table [col sep=comma, x index=2, y index=3] {data/var_r.csv};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Ansättningen $c = 1$}
+  \label{fig:lin_c}
+\end{figure}
+
+På grund av den höga linjäriteten (framförallt när $r$ var väldigt nära 0)
+antogs $c = 1$ vara en korrekt ansättning. Ekvationssystemet löstes sedan
+fullständigt.
+
+\begin{align}
+  ce - \frac{1}{2} = 0 \quad &\Leftrightarrow \quad ce = \frac{1}{2} \quad \Leftrightarrow \quad e = \frac{1}{2c} = \frac{1}{2} & \\[0.5em]
+  \frac{1}{2} - 2 + de - \frac{1}{2} = 0 \quad &\Leftrightarrow \quad de = 2 \quad \Leftrightarrow \quad d = 2c = 2 &
+\end{align}
+
+\subsection{Bestämning av konstanter}
+
+Konstanterna $c_1$ och $c_2$ bestämdes genom följande linjärisering.
+Mätserie~3 återanvändes och figur~\ref{fig:lin_c1_c2} ritades ut.
+
+\begin{align}
+  T &= L^{1/2} \cdot d^{-2} \cdot (m r^2 + c_1)^{1/2} \cdot G^{-1/2} \cdot c_2 \nonumber \\
+  T^2 &= L \cdot d^{-4} \cdot (m r^2 + c_1) \cdot G^{-1} \cdot c_2^2 \nonumber \\
+  \underbrace{\frac{T^2 d^4 G}{L}}_y &= \underbrace{c_2^2 \vphantom{\frac{T^2 d^4 G}{L}}}_k \underbrace{m r^2 \vphantom{\frac{T^2 d^4 G}{L}}}_x + \underbrace{c_1c_2^2 \vphantom{\frac{T^2 d^4 G}{L}}}_m
+\end{align}
+
+\begin{figure}[h!]
+  \begin{tikzpicture}
+    \begin{axis} [
+      xticklabel style={
+        /pgf/number format/fixed,
+        /pgf/number format/precision=3
+      },
+      scaled x ticks=false,
+      ylabel=$y$,
+      xlabel=$x$,
+      xmin=-0.0005, xmax=0.0045,
+      ymin=-0.5, ymax=4.9,
+      legend pos = outer north east,
+      ]
+      \addplot+ [mark=none,domain=-0.0005:0.005] {880.998*x + 0.787};
+      \addlegendentry{$881x + 0.79$};
+      \addplot+ [only marks,mark=*,color=blue,mark options={fill=blue}] table [col sep=comma, x index=0, y index=1] {data/c1_c2.csv};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Linjärisering för att bestämma $c_1$ och $c_2$}
+  \label{fig:lin_c1_c2}
+\end{figure}
+
+\begin{align}
+  k = c_2^2 \quad &\Leftarrow \quad c_2 = \sqrt{k} \approx 29.7 \\
+  m = c_1c_2^2 \quad &\Leftarrow \quad c_1 = \frac{m}{k} \approx 0.00089
+\end{align}
+
+\subsection{Felanalys}
+
+... Osäkerheten i $c_1$ och $c_2$ bedömdes med felfortplantningsformeln.
+
+Följande ekvationer ställdes upp.
+
+\begin{align}
+  c_2(k) &= \sqrt{k} \\
+  c_1(k, m) &= \frac{m}{k}
+\end{align} 
+
+Utifrån dessa ställdes följande feluppskattningar upp.
+
+\begin{align}
+  s(c_2) &= \frac{\dd c_2}{\dd k} \, s(k) = \frac{1}{2\sqrt{k}} \, s(k) \approx ...\\
+  s(c_1) &= \sqrt{\left( \frac{\partial c_1}{\partial k} \, s(k) \right)^2 + \left( \frac{\partial c_1}{\partial m} \, s(m) \right)^2} \nonumber \\
+         &= \sqrt{\left( \frac{-m}{k^2} \, s(k) \right)^2 + \left( \frac{1}{k} \, s(m) \right)^2} \approx ...
+\end{align}
+
+\section{Slutsats och diskussion}
+
+\end{document}
