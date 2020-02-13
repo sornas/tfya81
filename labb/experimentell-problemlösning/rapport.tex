@@ -20,7 +20,6 @@
 
 %TODO
 % beskrivande figur
-% dubbelkolla decimaler
 % siffror mätserie 3
 
 \newcommand*{\dd}{\mathrm{d}}
@@ -43,7 +42,7 @@
     \textsc{Gustav Sörnäs} - gusso230 \\
     \vspace{2cm}
     Teknisk fysik och elektroteknik (Y) \\
-    Linköpings universitet, Linköping \today{} (Version 1)
+    Linköpings universitet\\\today{}\\Version 1
   }
 
   % Bottom of the page
@@ -53,18 +52,18 @@
 \pagenumbering{gobble}
 \section*{Sammanfattning}
 
-En modell för periodtiden för en torsionspendel togs
-fram via experiment och beräkning. Följande blev modellen.
+En modell för periodtiden för en torsionspendel med påhängda vikter har tagits
+fram via experiment och beräkningar,
 
 \begin{equation*}
-  T = \frac{c_2 \sqrt{l(ma^2 + c_1)}}{d^2 \sqrt{G}}
+  T = \frac{c_2 \sqrt{l(ma^2 + c_1)}}{d^2 \sqrt{G}},
 \end{equation*}
 
-$T$ är period tiden, $l$ och $d$ beskriver trådens längd respektive diameter. $m$ är de
-på satta vikternas massa, $a$ är längden från pendelns centrum och de påsatta
-vikternas centrum och $G$ är skjuvmodulen för trådens material. $c_1$ är en konstant
-som uppmättes till \SI{0.00089(9)}{\kilogram \meter \squared}. $c_2$ är en dimensionslös
-konstant som uppmättes till \num{29.77(6)}.  %TODO VALUE
+där $T$ är periodtiden, $l$ och $d$ trådens längd respektive diameter, $m$ de
+påhängda vikternas massa, $a$ längden mellan pendelns centrum och ytterkanten på
+de påhängda vikterna och $G$ trådens skjuvmodul. $c_1$ uppmättes till
+\SI{0.00089(9)}{\kilogram \meter \squared} och $c_2$ till
+\num{29.77(6)}. %TODO VALUE
 
 \clearpage
 
@@ -75,19 +74,19 @@ konstant som uppmättes till \num{29.77(6)}.  %TODO VALUE
 
 \section{Inledning}
 
-Syftet med laborationen var att ta fram en fysikalisk modell för periodtiden
-för en stång i en torsionspendel,  beroende på trådens längd, diameter, massan
-samt hur långt ut på stången vikterna sattes.
+Syftet med laborationen var att ta fram en modell för periodtiden för en stång i
+en torsionspendel med påhängda vikter som berodde på trådens längd, diameter,
+massan av de påhängda vikterna samt hur långt ut på stången vikterna sattes.
 
 \section{Metod}
 
 %\subsection{Experimentets utförande}
 En metalltråd fästes med hjälp av en tving-liknande klämma i ena änden och läts
-i andra änden hänga fritt. I den fria änden fästes mitten av en stång med en
-insex-nyckel. På stångens båda sidor skruvades vikter på med lika avstånd från
-mittpunkten av stången. Vid vardera mätning roterades stången en bit och läts
-sedan pendla fritt. Pendeltiden mättes för tio pendelutslag åt gången för att
-minska osäkerheten.
+i andra änden hänga fritt, se figur~\ref{fig:method}. I den fria änden fästes
+mitten av en stång med en insexnyckel. På stångens båda sidor skruvades vikter
+på med lika avstånd från mittpunkten av stången. Vid vardera mätning roterades
+stången en bit och läts sedan pendla fritt. Pendeltiden mättes för tio
+pendelutslag åt gången för att minska osäkerheten.
 
 \subsection{Ingående variabler}
 
@@ -114,15 +113,20 @@ tiden mättes med stoppur.
 
 \subsection{Hypotes}
 
-I övrigt antogs sambandet vara multiplikativt.
+Sambandet antogs i huvudsak vara multiplikativt. Eftersom pendeltiden rimligtvis
+inte är 0 när en massa inte hängs på och både $m$ och $a$ påverkas av densamma
+antogs att $m^\gamma$ och $a^\sigma$ adderas med en konstant $c_1$ med någon
+okänd dimension [$\si{\kilogram}^\gamma\si{\meter}^\sigma$]. Ekvation~\eqref{eq:hypotes}
+fördes fram som hypotes.
 
 \begin{equation}
   T = L^\alpha \cdot d^\beta \cdot (m^\gamma \cdot a^\sigma + c_1)^\omega \cdot G^\lambda \cdot c_2
+  \label{eq:hypotes}
 \end{equation}
 
 \subsection{Dimensionsanalys}
 
-Givet ovanstående ansats ficks följande ekvationssystem gällande exponenterna.
+Givet hypotesen ficks följande ekvationssystem gällande exponenterna.
 
 \begin{equation}
   %\left\{
@@ -200,8 +204,8 @@ figur~\ref{fig:lin_La} och figur~\ref{fig:lin_db}.
   \label{fig:lin_db}
 \end{figure}
 
-Eftersom lutningen i figur~\ref{fig:lin_La} beskrev exponenten $\alpha$ och
-lutningen i figur~\ref{fig:lin_db} beskrev exponenten $\beta$ antogs $\alpha =
+Eftersom lutningen i figur~\ref{fig:lin_La} beskriver exponenten $\alpha$ och
+lutningen i figur~\ref{fig:lin_db} beskriver exponenten $\beta$ antogs $\alpha =
 0.5$ och $\beta = -2$.
 
 \subsection{Ansättning}
@@ -218,11 +222,11 @@ ekvationssystemet \eqref{eq:system} och ett värde på $\gamma$ ansattes.
   T^{2\gamma} &= (D^2m)^\gamma a^{2\gamma} + D^{2\gamma}c_1 \label{eq:lin_c}
 \end{align}
 
-I ekvation~\eqref{eq:use_system} användes ekvationsystemet så alla exponenter
+I ekvation~\eqref{eq:use_system} användes ekvationssystemet så alla exponenter
 beskrevs utifrån $c$.
 
-I ekvation~\eqref{eq:lin_c} ansattes sedan $\gamma = 1$. 35 mätningar (mätserie~3)
-utfördes där $a$ var den enda variabeln som varierade och figur~\ref{fig:lin_c}
+I ekvation~\eqref{eq:lin_c} ansattes sedan $\gamma = 1$. Ytterligare 35 mätningar (mätserie~3)
+utfördes där $a$ var den enda variabeln som varierades och figur~\ref{fig:lin_c}
 ritades ut för att kontrollera hypotesen.
 
 \begin{figure}[h!]
