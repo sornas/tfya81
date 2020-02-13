@@ -4,7 +4,10 @@
 \usepackage[utf8]{inputenc}
 
 \usepackage{amssymb, amsmath, amsthm}
-\usepackage{siunitx}
+\usepackage[output-decimal-marker={,},
+            group-separator={},
+            separate-uncertainty=true,
+            scientific-notation=true]{siunitx}
 
 \usepackage{subfig}
 \usepackage{pgfplots}
@@ -60,8 +63,8 @@ fram via experiment och beräkning. Följande blev modellen.
 $T$ är period tiden, $l$ och $d$ beskriver trådens längd respektive diameter. $m$ är de
 på satta vikternas massa, $a$ är längden från pendelns centrum och de påsatta
 vikternas centrum och $G$ är skjuvmodulen för trådens material. $c_1$ är en konstant
-som uppmättes till $0.00089 \pm 8.5 \cdot 10^{-6} \ \text{kgm}^2$. $c_2$ är en dimensionslös
-konstant som uppmättes till $29.7 \pm 0.06$.
+som uppmättes till \SI{0.00089(9)}{\kilogram \meter \squared}. $c_2$ är en dimensionslös
+konstant som uppmättes till \num{29.77(6)}.  %TODO VALUE
 
 \clearpage
 
@@ -171,7 +174,7 @@ figur~\ref{fig:lin_La} och figur~\ref{fig:lin_db}.
       legend pos = outer north east,
       ]
       \addplot+ [mark=none] {0.4601*x + 0.5066};
-      \addlegendentry {$0.46x + 0.51$};
+      \addlegendentry {$\num[scientific-notation=false]{0.46}x + \num[scientific-notation=false]{0.51}$};
       \addplot+ [only marks,mark=*,color=blue,mark options={fill=blue}] table [col sep=comma, x index=2, y index=3] {data/var_l.csv};
     \end{axis}
   \end{tikzpicture}
@@ -189,7 +192,7 @@ figur~\ref{fig:lin_La} och figur~\ref{fig:lin_db}.
       legend pos = outer north east,
       ]
       \addplot+ [mark=none,domain=-7:-5] {-1.897*x - 9.4668};
-      \addlegendentry {$-1.9x - 9.5$};
+      \addlegendentry {$\num[scientific-notation=false]{-1.9}x - \num[scientific-notation=false]9.5$};
       \addplot+ [only marks,mark=*,color=blue,mark options={fill=blue}] table [col sep=comma, x index=2, y index=3] {data/var_d.csv};
     \end{axis}
   \end{tikzpicture}
@@ -238,7 +241,7 @@ ritades ut för att kontrollera hypotesen.
       legend pos = outer north east,
       ]
       \addplot+ [mark=none, domain=-0.01:0.1] {22.9564*x + 0.3024};
-      \addlegendentry{$23.0x + 0.3$ \\ ($r^2 = 0.9994$)};
+      \addlegendentry{$\num[scientific-notation=false]{23.0}x + \num[scientific-notation=false]{0.3}$ \\ ($r^2 = $ \num[scientific-notation=false]{0.9994})};
       \addplot+ [only marks,mark=*,color=blue,mark options={fill=blue}] table [col sep=comma, x index=2, y index=3] {data/var_r.csv};
     \end{axis}
   \end{tikzpicture}
@@ -280,7 +283,7 @@ Mätserie~3 återanvändes och figur~\ref{fig:lin_c1_c2} ritades ut.
       legend pos = outer north east,
       ]
       \addplot+ [mark=none,domain=-0.0005:0.005] {880.998*x + 0.787};
-      \addlegendentry{$881 (\pm 4) \cdot x + 0.787 (\pm 0.007)$};
+      \addlegendentry{$(\num[scientific-notation=false]{881(4)})x + (\num[scientific-notation=false]{0.787(7)})$};
       \addplot+ [only marks,mark=*,color=blue,mark options={fill=blue}] table [col sep=comma, x index=0, y index=1] {data/c1_c2.csv};
     \end{axis}
   \end{tikzpicture}
@@ -319,9 +322,9 @@ Följande ekvationer ställdes upp.
 Utifrån dessa ställdes följande feluppskattningar upp.
 
 \begin{align}
-  s(c_2) &= \frac{\dd c_2}{\dd k} \, s(k) = \frac{1}{2\sqrt{k}} \, s(k) \approx ...\\
+  s(c_2) &= \frac{\dd c_2}{\dd k} \, s(k) = \frac{1}{2\sqrt{k}} \, s(k) \approx \num{...} \\
   s(c_1) &= \sqrt{\left( \frac{\partial c_1}{\partial k} \, s(k) \right)^2 + \left( \frac{\partial c_1}{\partial m} \, s(m) \right)^2} \nonumber \\
-         &= \sqrt{\left( \frac{-m}{k^2} \, s(k) \right)^2 + \left( \frac{1}{k} \, s(m) \right)^2} \approx ...
+         &= \sqrt{\left( \frac{-m}{k^2} \, s(k) \right)^2 + \left( \frac{1}{k} \, s(m) \right)^2} \approx \num{...}
 \end{align}
 
 \clearpage
