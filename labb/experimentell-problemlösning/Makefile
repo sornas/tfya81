@@ -31,7 +31,7 @@ rapport: rapport.pdf
 # -interaction=nonstopmode keeps the pdflatex backend from stopping at a
 # missing file reference and interactively asking you for an alternative.
 
-rapport.pdf: rapport.tex
+rapport.pdf: rapport.tex data/
 	latexmk -pdf -pdflatex="pdflatex -interaction=nonstopmode" -use-make rapport.tex; open rapport.pdf
 
 clean:
