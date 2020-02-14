@@ -20,9 +20,6 @@
 \usepackage{lipsum}
 \usepackage{parskip}
 
-%TODO
-% beskrivande figur
-
 \newcommand*{\dd}{\mathrm{d}}
 %\newcommand*{\ln}{\mathrm{ln}}
 
@@ -63,8 +60,8 @@ fram via experiment och beräkningar,
 där $T$ är periodtiden, $l$ och $d$ trådens längd respektive diameter, $m$ de
 påhängda vikternas massa, $a$ längden mellan pendelns centrum och ytterkanten på
 de påhängda vikterna och $G$ trådens skjuvmodul. $c_1$ uppmättes till
-\SI{0.00089(9)}{\kilogram \meter \squared} och $c_2$ till
-\num{29.77(6)}. %TODO VALUE
+\SI{8.93(8)e-4}{\kilogram \meter \squared} och $c_2$ till
+\num{29.68(6)}.
 
 \clearpage
 
@@ -247,7 +244,7 @@ ekvationssystemet \eqref{eq:system} och ett värde på $\gamma$ ansattes.
 \end{align}
 
 I ekvation~\eqref{eq:use_system} användes ekvationssystemet så alla exponenter
-beskrevs utifrån $c$.
+beskrevs utifrån $\gamma$.
 
 I ekvation~\eqref{eq:lin_c} ansattes sedan $\gamma = 1$. Ytterligare 35 mätningar (mätserie~3)
 utfördes där $a$ var den enda variabeln som varierades och figur~\ref{fig:lin_c}
@@ -273,7 +270,7 @@ ritades ut för att kontrollera hypotesen.
       \addplot+ [only marks,mark=*,color=blue,mark options={fill=blue}] table [col sep=comma, x index=2, y index=3] {data/var_r.csv};
     \end{axis}
   \end{tikzpicture}
-  \caption{Ansättningen $c = 1$}
+  \caption{Ansättningen $\gamma = 1$}
   \label{fig:lin_c}
 \end{figure}
 
@@ -319,24 +316,26 @@ Mätserie~3 återanvändes och figur~\ref{fig:lin_c1_c2} ritades ut.
   \label{fig:lin_c1_c2}
 \end{figure}
 
-\begin{align}
-  k = c_2^2 \quad &\Leftarrow \quad c_2 = \sqrt{k} \approx 29.7\\
-  m = c_1c_2^2 \quad &\Leftarrow \quad c_1 = \frac{m}{k} \approx 0.00089
-\end{align}
+\begin{alignat}{3}
+  k = c_2^2 \quad &\Leftarrow \quad c_2 = \sqrt{k} && \approx \num{29.68}\\
+  m = c_1c_2^2 \quad &\Leftarrow \quad c_1 = \frac{m}{k} && \approx \SI{8.93e-4}{\kilogram \meter\squared}
+\end{alignat}
 
 \subsection{Felanalys}
 
 Följande fel uppskattades i avläsningen av de olika storheterna.
 
+\sisetup{scientific-notation=false}
 \begin{tabular}{|l|l|}
   \hline
   \textbf{Storhet} & \textbf{Mätfel} \\\hline
-  Trådens längd ($L$) & $\pm 0.5 \text{mm}$ \\\hline
-  Trådens diameter ($d$) & $\pm 0.01 \text{mm}$ \\\hline
-  Viktens massa ($m$) & $\pm 0.05 \text{g}$ \\\hline
-  Viktens avstånd från mitten ($a$) & $\pm 0.5 \text{mm}$ \\\hline
-  Pendeltiden ($T$) & $\pm 0.05 \text{s}$ \\\hline
+  Trådens längd ($L$) & $\pm$ \SI{0.5}{\milli\metre} \\\hline
+  Trådens diameter ($d$) & $\pm$ \SI{0.01}{\milli\metre} \\\hline
+  Viktens massa ($m$) & $\pm$ \SI{0.05}{\gram} \\\hline
+  Viktens avstånd från mitten ($a$) & $\pm$ \SI{0.5}{\milli\metre} \\\hline
+  Pendeltiden ($T$) & $\pm$ \SI{0.05}{\second} \\\hline
 \end{tabular}
+\sisetup{scientific-notation=true}
 
 Osäkerheten i $c_1$ och $c_2$ bedömdes med felfortplantningsformeln.
 
@@ -350,9 +349,10 @@ Följande ekvationer ställdes upp.
 Utifrån dessa ställdes följande feluppskattningar upp.
 
 \begin{align}
-  s(c_2) &= \frac{\dd c_2}{\dd k} \, s(k) = \frac{1}{2\sqrt{k}} \, s(k) \approx \num{} \\
+  s(c_2) &= \frac{\dd c_2}{\dd k} \, s(k) = \frac{1}{2\sqrt{k}} \, s(k) \approx \num{6.33e-2} \\
   s(c_1) &= \sqrt{\left( \frac{\partial c_1}{\partial k} \, s(k) \right)^2 + \left( \frac{\partial c_1}{\partial m} \, s(m) \right)^2} \nonumber \\
-         &= \sqrt{\left( \frac{-m}{k^2} \, s(k) \right)^2 + \left( \frac{1}{k} \, s(m) \right)^2} \approx \num{}
+         &= \sqrt{\left( \frac{-m}{k^2} \, s(k) \right)^2 + \left( \frac{1}{k} \, s(m) \right)^2} \nonumber \\
+  &\approx \SI{8.50e-6}{\kilogram \meter \squared}
 \end{align}
 
 \clearpage
