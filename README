@@ -1,0 +1,8 @@
+This repo contains two separate branches, `master` for reports and `notes`
+for... notes.
+
+Recommended usage:
+$ git worktree add notes notes
+
+The branch `notes` will be checked out into the notes-folder and the working
+trees of branches `master` and `notes` will be separated.
