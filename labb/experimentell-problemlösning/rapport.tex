@@ -40,7 +40,7 @@
     \textsc{Gustav Sörnäs} -- gusso230 \\
     \vspace{2cm}
     Teknisk fysik och elektroteknik (Y) \\
-    Linköpings universitet\\\today{}\\Version 1
+    Linköpings universitet\\\today{}\\Version 2
   }
 
   % Bottom of the page
@@ -51,16 +51,16 @@
 \section*{Sammanfattning}
 
 En modell för periodtiden för en torsionspendel med påhängda vikter har tagits
-fram via experiment och beräkningar,
+fram via experiment och beräkningar:
 
 \begin{equation*}
   T = \frac{c_2 \sqrt{l(ma^2 + c_1)}}{d^2 \sqrt{G}},
 \end{equation*}
 
-där $T$ är periodtiden, $l$ och $d$ trådens längd respektive diameter, $m$ de
-påhängda vikternas massa, $a$ längden mellan pendelns centrum och ytterkanten på
-de påhängda vikterna och $G$ trådens skjuvmodul. $c_1$ uppmättes till
-\SI{8.93(8)e-4}{\kilogram \meter \squared} och $c_2$ till
+där $T$ är periodtiden, $l$ och $d$ är trådens längd respektive diameter, $m$ är
+de påhängda vikternas massa, $a$ är längden mellan pendelns centrum och
+ytterkanten på de påhängda vikterna och $G$ är trådens skjuvmodul. $c_1$
+uppmättes till \SI{8.93(8)e-4}{\kilogram \meter \squared} och $c_2$ till
 \num{29.68(6)}.
 
 \clearpage
@@ -94,8 +94,8 @@ massan av de påhängda vikterna samt hur långt ut på stången vikterna sattes
   \draw [decoration={brace,amplitude=10pt},decorate] (-0.6,0.2) -- (-0.6,5.9);
   \node at (-1.3, 3.1) {$L$};
   \draw [fill=black](0,4.5) circle (0.1cm);
-  \draw [-{Latex[length=3mm]}] (2.5,4.5) -- (0.3,4.5);
-  \node at (2.71,4.56) {$d$};
+  \draw [-{Latex[length=3mm]}] (1.5,4.5) -- (0.3,4.5);
+  \node at (2.71,4.5) {$d$ (diameter)};
 \end{tikzpicture} 
 \caption{Laborationens uppställning}
 \label{fig:uppställning}
@@ -103,7 +103,7 @@ massan av de påhängda vikterna samt hur långt ut på stången vikterna sattes
 
 %\subsection{Experimentets utförande}
 En metalltråd fästes med hjälp av en tving-liknande klämma i ena änden och läts
-i andra änden hänga fritt, se figur~\ref{fig:uppställning}. I den fria änden fästes
+i andra änden hänga fritt (se figur~\ref{fig:uppställning}). I den fria änden fästes
 mitten av en stång med en insexnyckel. På stångens båda sidor skruvades vikter
 på med lika avstånd från mittpunkten av stången. Vid vardera mätning roterades
 stången en bit och läts sedan pendla fritt. Pendeltiden mättes för tio
@@ -123,22 +123,21 @@ pendelutslag åt gången för att minska osäkerheten.
     Viktens avstånd från mitten & $a$ & [m] & L \\\hline
     Trådens skjuvmodul & $G$ & [Pa] $=$ [kg $\mathrm{m}^{-1}$ $\mathrm{s}^{-2}$] & M $\mathrm{L}^{-1}$ $\mathrm{T}^{-2}$ \\\hline
     Pendeltiden & $T$ & [s] & T \\\hline
-    Konstant med dimension & $c_1$ & [?] & ? \\\hline
-    Konstant utan dimension & $c_2$ && \\\hline
   \end{tabular}
 \end{table}
 
-Trådens diameter mättes med en mikrometer. Övriga längder mättes med måttband.
-Massan mättes med våg, skjuvmodulerna gavs i laborationsinstruktionen och
-tiden mättes med stoppur.
+Ingående variabler som antogs påverka pendeltiden presenteras i
+tabell~\ref{tab:storheter}. Trådens diameter mättes med en mikrometer. Övriga
+längder mättes med måttband.  Massan mättes med våg, skjuvmodulerna gavs i
+laborationsinstruktionen och tiden mättes med stoppur.
 
 \subsection{Hypotes}
 
 Sambandet antogs i huvudsak vara multiplikativt. Eftersom pendeltiden rimligtvis
-inte är 0 när en massa inte hängs på och både $m$ och $a$ påverkas av densamma,
-antogs att $m^\gamma$ och $a^\sigma$ adderas med en konstant $c_1$ med någon
-okänd dimension [$\si{\kilogram}^\gamma\si{\meter}^\sigma$]. Ekvation~\eqref{eq:hypotes}
-fördes fram som hypotes.
+inte är 0 när en massa inte hängs på och både $m$ och $a$ påverkas av den
+påhängda massan antogs att $m^\gamma$ och $a^\sigma$ adderas med en konstant
+$c_1$ med någon okänd dimension [$\si{\kilogram}^\gamma\si{\meter}^\sigma$].
+Ekvation~\eqref{eq:hypotes} fördes fram som hypotes.
 
 \begin{equation}
   T = L^\alpha \cdot d^\beta \cdot (m^\gamma \cdot a^\sigma + c_1)^\omega \cdot G^\lambda \cdot c_2
@@ -186,8 +185,8 @@ varierades och följande linjärisering gjordes.
   \ln T &= \beta\ln d + \ln (L^\alpha \cdot (m^\gamma \cdot a^\sigma + c_1)^\omega \cdot G^\lambda \cdot c_2)  \label{eq:lin_db}
 \end{align}
 
-Ekvationerna \eqref{eq:lin_La} och \eqref{eq:lin_db} ritades upp enligt
-figur~\ref{fig:lin_La} och figur~\ref{fig:lin_db}.
+Ekvationerna \eqref{eq:lin_La} och \eqref{eq:lin_db} ritades upp
+(figur~\ref{fig:lin_La} och figur~\ref{fig:lin_db}).
 
 \begin{figure}
   \begin{tikzpicture}
@@ -231,9 +230,9 @@ lutningen i figur~\ref{fig:lin_db} beskriver exponenten $\beta$ antogs $\alpha =
 
 \subsection{Ansättning}
 
-På grund av additionen under exponenten $\omega$ kunde varken $\gamma$, $\sigma$ eller $\omega$
-beräknas genom linjärisering. Istället gjordes en omskrivning med hjälp av
-ekvationssystemet \eqref{eq:system} och ett värde på $\gamma$ ansattes.
+På grund av additionen under exponenten $\omega$ kunde varken $\gamma$, $\sigma$
+eller $\omega$ beräknas genom linjärisering. Istället gjordes en omskrivning med
+hjälp av ekvationssystemet \eqref{eq:system} och ett värde på $\gamma$ ansattes.
 
 \begin{align}
   T &= L^\alpha \cdot d^\beta \cdot (m^\gamma \cdot a^\sigma + c_1)^\omega \cdot G^\lambda  \cdot c_2\nonumber \\
@@ -243,8 +242,8 @@ ekvationssystemet \eqref{eq:system} och ett värde på $\gamma$ ansattes.
   T^{2\gamma} &= (D^2m)^\gamma a^{2\gamma} + D^{2\gamma}c_1 \label{eq:lin_c}
 \end{align}
 
-I ekvation~\eqref{eq:use_system} användes ekvationssystemet så alla exponenter
-beskrevs utifrån $\gamma$.
+I ekvation~\eqref{eq:use_system} användes ekvationssystemet
+(ekvation~\eqref{eq:system}) så alla exponenter beskrevs utifrån $\gamma$.
 
 I ekvation~\eqref{eq:lin_c} ansattes sedan $\gamma = 1$. Ytterligare 35 mätningar (mätserie~3)
 utfördes där $a$ var den enda variabeln som varierades och figur~\ref{fig:lin_c}
@@ -259,7 +258,7 @@ ritades ut för att kontrollera hypotesen.
         /pgf/number format/precision=3
       },
       scaled x ticks=false,
-      ylabel=$T^2$,
+      ylabel={$T^2$ [$\si{\meter\squared}$]},
       xlabel=$a^2$,
       xmin=-0.005, xmax=0.063,
       ymin=-0.1, ymax=1.8,
@@ -274,8 +273,8 @@ ritades ut för att kontrollera hypotesen.
   \label{fig:lin_c}
 \end{figure}
 
-På grund av den höga linjäriteten (framförallt för $a$ nära 0) antogs $\gamma = 1$
-vara en korrekt ansättning. Ekvationssystemet löstes sedan fullständigt.
+På grund av den höga linjäriteten (framförallt för $a$ nära 0) antogs $\gamma =
+1$ vara en korrekt ansättning. Ekvationssystemet löstes sedan fullständigt.
 
 \begin{align}
   \gamma\omega - \frac{1}{2} = 0 \quad &\Leftrightarrow \quad \gamma\omega = \frac{1}{2} \quad \Leftrightarrow \quad \omega = \frac{1}{2\gamma} = \frac{1}{2} & \\[0.5em]
@@ -301,11 +300,11 @@ Mätserie~3 återanvändes och figur~\ref{fig:lin_c1_c2} ritades ut.
         /pgf/number format/precision=3
       },
       scaled x ticks=false,
-      ylabel=$y$,
-      xlabel=$x$,
+        ylabel={$\frac{T^2d^4G}{L}$ [$\si{\kilo\gram\meter\squared}$]},
+        xlabel={$ma^2$ [$\si{\kilo\gram\meter\squared}$]},
       xmin=-0.0005, xmax=0.0045,
       ymin=-0.5, ymax=4.9,
-      legend pos = outer north east,
+      legend pos = outer north east
       ]
       \addplot+ [mark=none,domain=-0.0005:0.005] {880.998*x + 0.787};
       \addlegendentry{$(\num[scientific-notation=false]{881(4)})x + (\num[scientific-notation=false]{0.787(7)})$};
@@ -364,7 +363,7 @@ Utifrån dessa ställdes följande feluppskattningar upp.
 Experimentet tillsammans med dimensionsanalys och linjärisering visar att det
 går att ta fram en modell och formel för periodtiden för en torsionspendel.
 Analysen visar att trådens längd, diameter, skjuvmodul och var vikten placeras
-på stången samt viktens mass påverkar pendeltiden. 
+på stången samt viktens massa påverkar pendeltiden. 
 
 \subsection*{Diskussion}
 
@@ -376,6 +375,13 @@ Vidare borde en eller flera separata modellprövningar ha utförts. Modellen
 testades aldrig mot nya mätvärden vilket kan betyda att modellen är anpassad
 efter våra mätningar och inte speglar verkligheten. Fler mätningar med olika
 variabler som varieras skulle öka modellens trovärdighet.
+
+Trots den låga felmarginalen för $c_1$ och $c_2$ är det inte garanterat att de
+visar på någon slags ``objektiv sanning''. Främst utfördes inte någon
+kalibrering av våg och mikrometer innan experimenten så trots de låga
+osäkerheterna är det inte garanterat att värdena är korrekta. Till exempel kan
+de ``faktiska'' värdena på $c_1$ och $c_2$ vara förskjutna om mätinstrumenten
+alltid visar samma fel. 
 
 \clearpage
 \appendix
